@@ -1,9 +1,9 @@
 import Header from "../../components/header";
-import Form from "../../components/CadTec"
+import Form from "../../components/CadFunc"
 import Imagemcad from "../../images/mobile.svg"
 
 
-function CadastroTec() {
+function CadastroFunc() {
     return (
         <div className="font-Poppins">
             <Header/>
@@ -22,4 +22,4 @@ function CadastroTec() {
     );
 }
 
-export default CadastroTec;
+export default CadastroFunc;

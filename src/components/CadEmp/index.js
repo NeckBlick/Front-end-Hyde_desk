@@ -2,17 +2,17 @@ import api from "../../api"
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-function CadTec () {
+function CadEmp () {
     const [status, setStatus] = useState('');
-    const [imagem, setImagem] = useState(null)
     const [user,setUser] = useState({
         nome: "",
-        cpf: "",
+        cnpj: "",
         email: "",
         telefone: "",
-        especialidade: "",
+        cep: "",
+        numero_endereco: "",
         senha: "",
-        confirmsenha: "",
+        confirmarsenha: "",
     })
 
 
@@ -53,25 +53,25 @@ function CadTec () {
 
     return (
         <div className="bg-white px-10 py-10 rounded">
-            <h1 className="font-bold text-2xl">Cadastro para técnicos</h1>
+            <h1 className="font-bold text-2xl">Cadastro para empresas</h1>
             <div>
                 <form encType="multipart/form">
 
                     <div className="mt-8">
-                    <label className="text-lg font-medium text-gray-900 dark:text-white">Nome completo</label>
+                    <label className="text-lg font-medium text-gray-900 dark:text-white">Nome da empresa</label>
                         <input
                             className="border-2 w-full rounded p-2"
-                            placeholder= "Nome completo"
+                            placeholder= "Nome da empresa"
                             name="nome"
                             onChange={handleUser}
                             />
                     </div>
                     <div className="mt-2">
-                    <label className="text-lg font-medium text-gray-900 dark:text-white">CPF</label>
+                    <label className="text-lg font-medium text-gray-900 dark:text-white">CNPJ</label>
                         <input
                             className="border-2 w-full rounded p-2"
-                            placeholder= "CPF"
-                            name="cpf"
+                            placeholder= "CNPJ"
+                            name="cnpj"
                             onChange={handleUser}
                             />
                     </div>
@@ -95,13 +95,22 @@ function CadTec () {
                             />
                     </div>
                     <div className="mt-2">
-                        <label className="text-lg font-medium text-gray-900 dark:text-white">Especialidade</label>
-                        <select className="border-2 w-full rounded p-2" name="especialidade" onChange={handleUser}>
-                            <option selected disabled>Selecione uma opção</option>
-                            <option value="Desenvolvedor">Desenvolvedor</option>
-                            <option value="Infraestrutura">Infraestrutura</option>
-                            <option value="Sistemas operacionais">Sistemas operacionais</option>
-                        </select>
+                    <label className="text-lg font-medium text-gray-900 dark:text-white">CEP</label>
+                        <input
+                            className="border-2 w-full rounded p-2"
+                            placeholder= "CEP"
+                            name="cep"
+                            onChange={handleUser}
+                            />
+                    </div>
+                    <div className="mt-2">
+                    <label className="text-lg font-medium text-gray-900 dark:text-white">Endereço completo</label>
+                        <input
+                            className="border-2 w-full rounded p-2"
+                            placeholder= "Endereço Completo"
+                            name="numero_endereco"
+                            onChange={handleUser}
+                            />
                     </div>
                     <div className="mt-2">
                     <label className="text-lg font-medium text-gray-900 dark:text-white">Senha</label>
@@ -119,21 +128,9 @@ function CadTec () {
                             type="password"
                             className="border-2 w-full rounded p-2"
                             placeholder="Confirme sua senha"
-                            name="confirmsenha"
+                            name="confirmarsenha"
                             onChange={handleUser}
                             />
-                    </div>
-                    <div className="mt-2">
-                    <label className="text-sm font-medium text-gray-900 dark:text-white">Selecione uma foto de perfil</label>
-                        <input
-                            type="file"
-                            className="border-2 w-full rounded p-2"
-                            placeholder="Selecione uma foto"
-                            name="anexo"
-                            accept=".png, .jpg, .jpeg"
-                            onChange={(e) => setImagem(e.file)}
-                            />
-                        <p className="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG ou JPEG.</p>
                     </div>
                 <div className="mt-8 flex flex-col">
                     <button className="hover:bg-cyan-600 mb-6 bg-cyan-500 p-2 rounded-3xl text-white font-bold text-lg"
@@ -147,9 +144,9 @@ function CadTec () {
                         <p className="text-black font-medium mb-1">Já possui uma conta?</p>
                         <p className="ml-2 text-cyan-500 font-medium mb-1">Login</p>
                     </Link>                  
-                    <Link className="no-underline flex items-center " to='/cadastro-empresarial'>
+                    <Link className="no-underline flex items-center " to='/cadastro-tecnico'>
                         <p className="text-black font-medium mb-1">Cadastrar como</p>
-                        <p className="ml-1 text-cyan-500 font-medium mb-1">empresa</p>
+                        <p className="ml-1 text-cyan-500 font-medium mb-1">técnico</p>
                     </Link>                  
                 </div>
             </div>
@@ -157,4 +154,4 @@ function CadTec () {
     );
 }
 
-export default CadTec
+export default CadEmp
